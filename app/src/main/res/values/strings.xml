@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="app_name">TMDB</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Search for Movies</string>
+    <string name="edit_message">Enter a movie keyword</string>
+    <string name="button_send">Search</string>
+    <string name="title_activity_imdbsearch_result">TMDB Search Results</string>
+
+</resources>
