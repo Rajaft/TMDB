@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -191,7 +192,15 @@ public class MoviesFragment extends ListFragment {
 
         @Override
         protected void onPostExecute(Object result) {
-            updateViewWithResults((ArrayList<MovieResult>) result);
+            ArrayList<MovieResult> movieList = (ArrayList<MovieResult>) result;
+
+            if (movieList != null && !movieList.isEmpty()) {
+                updateViewWithResults(movieList);
+            }
+            else {
+                Toast.makeText(getActivity(), "No results found!", Toast.LENGTH_LONG).show();
+                getActivity().finish();
+            }
         };
 
         /**
