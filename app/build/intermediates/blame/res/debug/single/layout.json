@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Android/TMDB/app/build/intermediates/res/merged/debug/layout/activity_imdbsearch_result.xml",
+        "source": "/Android/TMDB/app/src/main/res/layout/activity_imdbsearch_result.xml"
+    },
+    {
+        "merged": "/Android/TMDB/app/build/intermediates/res/merged/debug/layout/movie_item.xml",
+        "source": "/Android/TMDB/app/src/main/res/layout/movie_item.xml"
+    },
+    {
+        "merged": "/Android/TMDB/app/build/intermediates/res/merged/debug/layout/movie_detail.xml",
+        "source": "/Android/TMDB/app/src/main/res/layout/movie_detail.xml"
+    },
+    {
+        "merged": "/Android/TMDB/app/build/intermediates/res/merged/debug/layout/movie_result_list_item.xml",
+        "source": "/Android/TMDB/app/src/main/res/layout/movie_result_list_item.xml"
+    },
+    {
+        "merged": "/Android/TMDB/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
+        "source": "/Android/TMDB/app/src/main/res/layout/activity_main.xml"
+    }
+]

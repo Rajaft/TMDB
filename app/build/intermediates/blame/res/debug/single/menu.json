@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Android/TMDB/app/build/intermediates/res/merged/debug/menu/activity_imdbsearch_result.xml",
+        "source": "/Android/TMDB/app/src/main/res/menu/activity_imdbsearch_result.xml"
+    },
+    {
+        "merged": "/Android/TMDB/app/build/intermediates/res/merged/debug/menu/activity_main.xml",
+        "source": "/Android/TMDB/app/src/main/res/menu/activity_main.xml"
+    }
+]

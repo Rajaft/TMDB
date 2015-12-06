@@ -8,7 +8,7 @@ import android.view.MenuItem;
 public class TMDBSearchResultActivity extends FragmentActivity
         implements MoviesFragment.OnMovieSelectedListener {
 
-    public  final static String PAR_KEY = "com.rajat.objectPass.par";
+    public final static String PAR_KEY = "com.rajat.objectPass.par";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class TMDBSearchResultActivity extends FragmentActivity
                     .add(R.id.fragment_container, firstFragment).commit();
         }
     }
-    
+
 
     public void onMovieSelected(MovieResult movie) {
         // The user selected ta movie from the MoviessFragment
@@ -81,7 +81,8 @@ public class TMDBSearchResultActivity extends FragmentActivity
             case android.R.id.home:
                 finish();
                 return true;
-            default: return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 }

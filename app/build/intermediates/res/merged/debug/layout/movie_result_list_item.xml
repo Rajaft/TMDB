@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:id="@+id/fragment_container"
-android:layout_width="match_parent"
-android:layout_height="match_parent" />
-<!-- From: file:/C:/Users/rajat/AndroidStudioProjects/android-tmdb/app/src/main/res/layout/movie_result_list_item.xml -->
+             android:id="@+id/fragment_container"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"/>
