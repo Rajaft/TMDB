@@ -1,6 +1,30 @@
 package com.rajat.tmdbsearch;
 
 
+import com.bumptech.glide.Glide;
+import com.rajat.tmdbsearch.MovieResult.Builder;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v4.app.ListFragment;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,35 +36,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.support.v4.app.ListFragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.util.Log;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.bumptech.glide.Glide;
-import com.rajat.tmdbsearch.MovieResult.Builder;
-
 public class MoviesFragment extends ListFragment {
-    OnMovieSelectedListener     mCallback;
-    ListFragment                mThisFragment;
-    MoviesAdapter               mMoviesAdapter;
-    TMDBQueryManager            mTMDBtask;
+    OnMovieSelectedListener mCallback;
+    ListFragment mThisFragment;
+    MoviesAdapter mMoviesAdapter;
+    TMDBQueryManager mTMDBtask;
 
     // The container Activity must implement this interface so the frag can deliver messages
     public interface OnMovieSelectedListener {
@@ -71,7 +71,7 @@ public class MoviesFragment extends ListFragment {
                 getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         if (networkInfo != null && networkInfo.isConnected()) {
-            mTMDBtask = (TMDBQueryManager)new TMDBQueryManager().execute(query);
+            mTMDBtask = (TMDBQueryManager) new TMDBQueryManager().execute(query);
 
         } else {
             Builder newMovie = MovieResult.newBuilder(0, "No network connection");
@@ -82,6 +82,7 @@ public class MoviesFragment extends ListFragment {
     /**
      * Updates the View with the results. This is called asynchronously
      * when the results are ready.
+     *
      * @param result The results to be presented to the user.
      */
     public void updateViewWithResults(ArrayList<MovieResult> result) {
@@ -120,7 +121,7 @@ public class MoviesFragment extends ListFragment {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        MovieResult movie = (MovieResult)l.getAdapter().getItem(position);
+        MovieResult movie = (MovieResult) l.getAdapter().getItem(position);
 
         // Get the intent to get the query.
         Intent intent = getActivity().getIntent();
@@ -140,20 +141,23 @@ public class MoviesFragment extends ListFragment {
 
     public class MoviesAdapter extends ArrayAdapter<MovieResult> {
         private final LayoutInflater mInflater;
+
         public MoviesAdapter(Context context) {
             super(context, android.R.layout.simple_list_item_2);
             mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
-        public void setData(List<MovieResult> movies){
+
+        public void setData(List<MovieResult> movies) {
             clear();
-            if (movies!=null) {
-                for (MovieResult movie : movies){
+            if (movies != null) {
+                for (MovieResult movie : movies) {
                     add(movie);
                 }
             }
         }
+
         @Override
-        public View getView (int position, View recycled, ViewGroup container){
+        public View getView(int position, View recycled, ViewGroup container) {
             final ImageView myImageView;
             if (recycled == null) {
                 myImageView = (ImageView) mInflater.inflate(R.layout.movie_item, container, false);
@@ -195,15 +199,17 @@ public class MoviesFragment extends ListFragment {
 
             if (movieList != null && !movieList.isEmpty()) {
                 updateViewWithResults(movieList);
-            }
-            else {
+            } else {
                 Toast.makeText(getActivity(), "No results found!", Toast.LENGTH_LONG).show();
                 getActivity().finish();
             }
-        };
+        }
+
+
 
         /**
          * Searches IMDBs API for the given query
+         *
          * @param query The query to search.
          * @return A list of all hits.
          */
@@ -239,10 +245,9 @@ public class MoviesFragment extends ListFragment {
         }
 
         private ArrayList<MovieResult> parseResult(String result) {
-            String streamAsString = result;
             ArrayList<MovieResult> results = new ArrayList<MovieResult>();
             try {
-                JSONObject jsonObject = new JSONObject(streamAsString);
+                JSONObject jsonObject = new JSONObject(result);
                 JSONArray array = (JSONArray) jsonObject.get("results");
                 for (int i = 0; i < array.length(); i++) {
                     JSONObject jsonMovieObject = array.getJSONObject(i);
@@ -258,7 +263,7 @@ public class MoviesFragment extends ListFragment {
                 }
             } catch (JSONException e) {
                 System.err.println(e);
-                Log.d(DEBUG_TAG, "Error parsing JSON. String was: " + streamAsString);
+                Log.d(DEBUG_TAG, "Error parsing JSON. String was: " + result);
             }
             return results;
         }
@@ -292,10 +297,13 @@ public class MoviesFragment extends ListFragment {
         protected void onPostExecute(Object result) {
             // Notify the parent activity of selected item
             mCallback.onMovieSelected((MovieResult) result);
-        };
+        }
+
+        ;
 
         /**
          * Searches IMDBs API for the given query
+         *
          * @param query The query to search.
          * @return A list of all hits.
          */
@@ -331,10 +339,9 @@ public class MoviesFragment extends ListFragment {
         }
 
         private MovieResult parseResult(String result) {
-            String streamAsString = result;
             MovieResult movie = null;
             try {
-                JSONObject jsonObject = new JSONObject(streamAsString);
+                JSONObject jsonObject = new JSONObject(result);
 
                 MovieResult.Builder movieBuilder = MovieResult.newBuilder(
                         Integer.parseInt(jsonObject.getString("id")),
@@ -352,7 +359,7 @@ public class MoviesFragment extends ListFragment {
 
             } catch (JSONException e) {
                 System.err.println(e);
-                Log.d(DEBUG_TAG, "Error parsing JSON. String was: " + streamAsString);
+                Log.d(DEBUG_TAG, "Error parsing JSON. String was: " + result);
             }
             return movie;
         }

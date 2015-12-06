@@ -1,5 +1,7 @@
 package com.rajat.tmdbsearch;
 
+import com.bumptech.glide.Glide;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -7,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 
 public class MovieFragment extends Fragment {
 
@@ -62,7 +62,7 @@ public class MovieFragment extends Fragment {
         movie_title.setText(movie.getTitle());
         movie_releasedate.setText(movie.getReleaseDate());
         movie_runtime.setText(movie.getRuntime() + " min");
-        movie_voteAverage.setText(movie.getVoteAverage()+"/10");
+        movie_voteAverage.setText(movie.getVoteAverage() + "/10");
         movie_overview.setText(movie.getOverview());
 
         mCurrentMovie = movie;

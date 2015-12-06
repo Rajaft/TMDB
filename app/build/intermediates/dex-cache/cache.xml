@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/MaTriXy/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.6.1/86b122e640af09b0723e1fa44083c354ba6d9089/glide-3.6.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
+        <dex dex="/Android/TMDB/app/build/intermediates/pre-dexed/debug/glide-3.6.1_00eeed3c89e30d835b0dd1e2f7573b2f54dec9d8.jar" />
+    </item>
+    <item
+        jar="/Android/TMDB/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Android/TMDB/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.1.1_d7c9e01d507c43f2be7eaac5bdec9df1923f61e5.jar" />
+    </item>
+    <item
+        jar="/Android/TMDB/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Android/TMDB/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.1_560f1d2fc5c384af7c699ec4cde4680b96a8ceb6.jar" />
+    </item>
+    <item
+        jar="/Android/TMDB/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5b6663b7c8340226b8678fe6cfe1c77db2ee1f90">
+        <dex dex="/Android/TMDB/app/build/intermediates/pre-dexed/debug/instant-run_031c69eca5ecfe716bc14eaa7b4650286da4138a.jar" />
+    </item>
+    <item
+        jar="/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Android/TMDB/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.1_640e9ccc1ace4d697568131c80e74e75dcfafd9f.jar" />
+    </item>
+    <item
+        jar="/Android/TMDB/app/build/intermediates/incremental-classes/debug/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="299240039c0e2e53b369e4f24e73178881825935">
+        <dex dex="/Android/TMDB/app/build/intermediates/pre-dexed/debug/classes_62e3d1253df9e2d73d0d42542b339056df4d2c9b.jar" />
+    </item>
+
+</items>
